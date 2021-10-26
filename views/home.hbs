@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <title>Home page</title>
+</head>
+<body>
+    <h1>Home page</h1>
+    <div class="d-flex justify-content-center">
+        <form action="/insert" method="post">
+            <div>
+                <label class="form-label" for="txtName">Product Name</label>
+                <input type="text" class="form-control" name="txtName" id="txtName">
+            </div>
+            <div>
+                <label class="form-label" for="txtPrice">Price</label>
+                <input type="text" class="form-control" name="txtPrice" id="txtPrice"> 
+            </div>
+            <div>
+                <label class="form-label" for="txtURL">Picture</label>
+                <input type="text" class="form-control" name="txtURL" id="txtURL">
+                <span style="color: red;">{{picError}}</span>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Insert">
+        </form>
+    </div>
+    <hr>
+    
+    <div class="row row-cols-1 row-cols-md-5 g-6"> 
+        {{#each products}}
+            <div class="col">
+                <div class="card h-100" style="width: 18rem;">
+                    <img src="{{picURL}}" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Id : {{_id}}</a></h5>
+                        <p class="card-text">Product's name : {{name}}</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Price : {{price}}</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="/edit/{{_id}}">Edit</a> <hr>
+                        <a onclick =" return confirm('Are you sure?')" href="/delete/{{_id}}">Delete</a>
+                    </div>
+                </div>               
+            </div>
+        {{/each}}
+    </div> 
+    
