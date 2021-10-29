@@ -4,17 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
     <title>Edit product</title>
 </head>
 <body>
     <h1>Update Product</h1>
-    <form action="/update" method="post">
-        <input type="hidden" name="txtId" value="{{product._id}}">
-        Name : <input type="text" name="txtName" value="{{product.name}}">
-        <br>
-        Price : <input type="text" name="txtPrice" value="{{product.price}}">
-        <br/>
-        <input type="submit" value="Update">
-    </form>
+    <div class="d-flex justify-content-center">
+        <form action="/update" method="post">
+            <div>
+                <input type="hidden" name="txtId" value="{{product._id}}">
+            </div>
+            <div>
+                <label class="form-label" for="txtName">Product Name</label>
+                <input type="text" class="form-control" name="txtName" value="{{product.name}}">
+            </div>
+            <div>
+                <label class="form-label" for="txtPrice">Price</label>
+                <input type="text" class="form-control" name="txtPrice" value="{{product.price}}"> 
+            </div>
+            <div>
+                <label class="form-label" for="txtURL">URL</label>
+                <input type="text" class="form-control" name="txtURL" value="{{product.picURL}}">
+            </div>
+            <input type="submit" class="btn btn-primary" value="Update">
+        </form>
+    </div>
 </body>
 </html>
